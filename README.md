@@ -1,2 +1,2 @@
 # game
-desenvolvimento de games na GodotEngine
+jogo com o intuto de aprender a desenvolver na plataforma godot
