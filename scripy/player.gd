@@ -25,6 +25,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
+	elif (motion.y > 0):
+		$Sprite.play("Down")
 	else:
 		$Sprite.play("Jump")
 
