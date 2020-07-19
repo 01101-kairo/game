@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://img/skeleton/skeleton1.png" type="Texture" id=1]
+[ext_resource path="res://img/skeleton/skeleton2.png" type="Texture" id=2]
+[ext_resource path="res://img/skeleton/skeleton3.png" type="Texture" id=3]
+[ext_resource path="res://scripy/skeleton.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "skeleton",
+"speed": 7.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.6784, 16.1383 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 5
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+position = Vector2( 15.9313, 16.3467 )
+scale = Vector2( 1.78963, 1.99804 )
+frames = SubResource( 1 )
+animation = "skeleton"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 15.6659, 16.0065 )
+shape = SubResource( 2 )

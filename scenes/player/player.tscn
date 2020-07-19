@@ -1,0 +1,72 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://img/Player/Jump4.png" type="Texture" id=1]
+[ext_resource path="res://scripy/player.gd" type="Script" id=2]
+[ext_resource path="res://img/Player/Jump1.png" type="Texture" id=3]
+[ext_resource path="res://img/Player/Run3.png" type="Texture" id=4]
+[ext_resource path="res://img/Player/Run0.png" type="Texture" id=5]
+[ext_resource path="res://img/Player/Jump3.png" type="Texture" id=6]
+[ext_resource path="res://img/Player/Idle0.png" type="Texture" id=7]
+[ext_resource path="res://img/Player/Run7.png" type="Texture" id=8]
+[ext_resource path="res://img/Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://img/Player/Jump0.png" type="Texture" id=10]
+[ext_resource path="res://img/Player/Run1.png" type="Texture" id=11]
+[ext_resource path="res://img/Player/Run4.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 20.8857
+height = 15.7387
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.0857, 3.99673 )
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 303.315, 319.095 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Down"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0612197, 3.88537 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_top = -607
+limit_bottom = 700
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.875946, 30.659 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
