@@ -19,6 +19,13 @@ config/name="Game"
 run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[input]
+
+esc={
+"deadzone": 0.5,
+"events": [  ]
+}
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
