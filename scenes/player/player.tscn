@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://img/Player/Jump4.png" type="Texture" id=1]
 [ext_resource path="res://scripy/player.gd" type="Script" id=2]
@@ -15,20 +15,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Run",
-"speed": 15.0
+"name": "Idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
+"name": "Run",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -43,14 +43,17 @@ height = 15.7387
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.0857, 3.99673 )
 
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 22.8725
+height = 11.6979
+
 [node name="player" type="KinematicBody2D"]
 position = Vector2( 303.315, 319.095 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Down"
-frame = 1
+animation = "Run"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -69,4 +72,13 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.875946, 30.659 )
 shape = SubResource( 3 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -0.358521, 0.0579224 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]

@@ -1,20 +1,50 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://img/skeleton/skeleton1.png" type="Texture" id=1]
 [ext_resource path="res://img/skeleton/skeleton2.png" type="Texture" id=2]
 [ext_resource path="res://img/skeleton/skeleton3.png" type="Texture" id=3]
 [ext_resource path="res://scripy/skeleton.gd" type="Script" id=4]
 
+[sub_resource type="Animation" id=3]
+resource_local_to_scene = true
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.588235, 0.00784314, 0.00784314, 1 ), Color( 0.588235, 0.00784314, 0.00784314, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
+}
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "skeleton",
-"speed": 7.0
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.6784, 16.1383 )
+extents = Vector2( 10.1722, 16.1383 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,10 +53,11 @@ collision_layer = 5
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
+anims/die = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-position = Vector2( 15.9313, 16.3467 )
-scale = Vector2( 1.78963, 1.99804 )
+position = Vector2( 15.9313, 16.0964 )
+scale = Vector2( 2.03998, 1.99804 )
 frames = SubResource( 1 )
 animation = "skeleton"
 frame = 2

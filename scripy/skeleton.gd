@@ -30,4 +30,6 @@ func _process(delta):
 			flip = true
 	motion = move_and_slide(motion, UP)
 func dano():
+	get_node("AnimationPlayer").play("die")
+func die():
 	$".".queue_free()

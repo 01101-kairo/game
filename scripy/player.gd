@@ -4,8 +4,8 @@ const UP = Vector2(0, -1)
 const GRAVITY = 20
 const SPEED = 200
 const JUMP_HEIGHT = -550
+var life = 5
 var motion = Vector2() 
-# warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	motion.y += GRAVITY
@@ -34,3 +34,9 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	body.dano()
+
+
+func _on_Area2D2_body_entered(body):
+	life -= 1
+	if life == 0:
+		get_tree().change_scene("res://scenes/Menu.tscn")
