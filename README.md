@@ -1,2 +1,2 @@
-# game
-jogo com o intuto de aprender a desenvolver na plataforma godot
+# games
+game for me to learn how to develop on the godot platform
