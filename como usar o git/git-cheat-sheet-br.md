@@ -1,3 +1,11 @@
+===============
+<hr>
+<p align="center">
+    <img alt="Git" src="./Img/git-logo.png" height="190" width="455">
+</p>
+<hr>
+
+<hr>
 Folha de dicas Git portugues
 ===============
 ### Índice
@@ -696,13 +704,13 @@ acabamento hotfix do git flow VERSION
 
 Comandos ###
 <p align = "center">
-    <img alt = "Git" src = "./ Img / git-flow-commands.png" height = "270" width = "460">
+    <img alt = "Git" src = "./Img/git-flow-commands.png" height = "270" width = "460">
 </p>
 <hr>
 
 ### Esquema de fluxo Git
 
 <p align = "center">
-    <img alt = "Git" src = "Img / git-comandos-de-fluxo-sem-fluxo.png">
+    <img alt = "Git" src = "Img/git-flow-commands-without-flow.png">
 </p>
 <hr>
