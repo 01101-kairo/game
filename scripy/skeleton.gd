@@ -5,11 +5,8 @@ var posicao_inicial
 var posicao_final
 var velocidade = 0.3
 const GRAV = 20
-const UP = Vector2(0, -1)
-var motion = Vector2() 
-# warning-ignore:unused_argument
+var motion = Vector2(0, -1) 
 func _physics_process(delta):
-	
 	motion.y += GRAV
 func _ready():
 	$AnimatedSprite.play("skeleton")
@@ -28,7 +25,7 @@ func _process(delta):
 		$AnimatedSprite.flip_h = true
 		if($".".position.x <= posicao_inicial):
 			flip = true
-	motion = move_and_slide(motion, UP)
+	motion = move_and_slide(motion) 
 func dano():
 	get_node("AnimationPlayer").play("die")
 func die():

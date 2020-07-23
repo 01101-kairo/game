@@ -35,7 +35,6 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	body.dano()
 
-
 func _on_Area2D2_body_entered(body):
 	life -= 1
 	if life == 0:
