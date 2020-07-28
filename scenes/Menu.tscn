@@ -3,7 +3,7 @@
 [ext_resource path="res://scripy/Menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/parallax/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/SourceCodePro-Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://music/Charlie Parra del Riego - Speed fcks guitar solo (online-audio-converter.com).ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/music/music1.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -19,23 +19,23 @@ __meta__ = {
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
-stream = ExtResource( 4 )
-autoplay = true
+[node name="Node2D" parent="." instance=ExtResource( 4 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.36609
+margin_top = 6.41977
+margin_right = 5.36597
+margin_bottom = 6.4198
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 392.0
+margin_left = 391.0
 margin_top = 244.0
-margin_right = 632.0
+margin_right = 631.0
 margin_bottom = 356.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -43,17 +43,26 @@ margin_right = 240.0
 margin_bottom = 64.0
 custom_fonts/font = SubResource( 1 )
 text = "Westward"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="start" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 68.0
 margin_right = 240.0
 margin_bottom = 88.0
 text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 92.0
 margin_right = 240.0
 margin_bottom = 112.0
 text = "exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boot_wink.ogg-f6f99c18a426dfd5fbf5ddafa8019329.oggstr"
+
+[deps]
+
+source_file="res://music/boot_wink.ogg"
+dest_files=[ "res://.import/boot_wink.ogg-f6f99c18a426dfd5fbf5ddafa8019329.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
